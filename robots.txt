@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://koseikarita.github.io/carnivore-lab/sitemap.xml
