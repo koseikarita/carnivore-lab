@@ -421,4 +421,75 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         window.requestAnimationFrame(step);
     }
+
+    // === カルーセル機能 ===
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const nextButton = document.querySelector('.next-btn');
+    const prevButton = document.querySelector('.prev-btn');
+    const dotsNav = document.querySelector('.carousel-indicators');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    
+    if (track && slides.length > 0) {
+        let currentIndex = 0;
+        let slideInterval;
+        
+        const updateCarousel = (index) => {
+            track.style.transform = 'translateX(-' + index * 100 + '%)';
+            dots.forEach(d => d.classList.remove('active'));
+            if (dots[index]) dots[index].classList.add('active');
+        };
+        
+        const nextSlide = () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel(currentIndex);
+        };
+        
+        const prevSlide = () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel(currentIndex);
+        };
+        
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
+            });
+        }
+        
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
+            });
+        }
+        
+        if (dotsNav) {
+            dotsNav.addEventListener('click', e => {
+                const targetDot = e.target.closest('.dot');
+                if (!targetDot) return;
+                currentIndex = dots.findIndex(d => d === targetDot);
+                updateCarousel(currentIndex);
+                resetInterval();
+            });
+        }
+        
+        const startInterval = () => {
+            slideInterval = setInterval(nextSlide, 5000); // 5 sec interval
+        };
+        
+        const resetInterval = () => {
+            clearInterval(slideInterval);
+            startInterval();
+        };
+        
+        // Hover to pause
+        const heroSection = document.querySelector('.home-hero');
+        if (heroSection) {
+            heroSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            heroSection.addEventListener('mouseleave', startInterval);
+        }
+        
+        startInterval();
+    }
 });
