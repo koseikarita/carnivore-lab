@@ -16,6 +16,28 @@
   padding: 0;
 }
 
+.site-logo {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.site-logo:hover {
+    opacity: 0.8;
+}
+
+.site-logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .header-top-nav {
+        flex-direction: column !important;
+        gap: 15px;
+    }
+}
+
 body {
   font-family: 'Noto Sans JP', sans-serif;
   background-color: var(--bg-color);
@@ -33,7 +55,7 @@ body {
 /* Header */
 .header {
   position: relative;
-  padding: 60px 0 40px;
+  padding: 15px 0 0;
   text-align: center;
   overflow: hidden;
 }

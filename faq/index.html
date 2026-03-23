@@ -11,15 +11,12 @@
 <body>
     <header class="header">
         <div class="header-bg"></div>
-        <div class="container header-content">
-            <h1 class="site-title">🥩 ボクサー・格闘家向け<br>カーニボア減量＆栄養計算ラボ</h1>
-            <p class="catchphrase" style="font-weight: 900;">肉で絞る。科学的に。</p>
-        </div>
-    </header>
-
-    <main class="container">
-        <nav>
-            <ul class="global-nav">
+        <div class="container header-top-nav" style="display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; padding-bottom: 5px;">
+            <a href="../index.html" class="site-logo">
+                <img src="../logo.png" alt="CarniLab" style="height: 50px; width: auto; display: block;">
+            </a>
+            <nav>
+            <ul class="global-nav" style="margin-bottom: 0;">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../boxer/index.html">ボクサーとは？</a></li>
                 <li><a href="index.html" class="active">FAQ</a></li>
@@ -27,7 +24,11 @@
                 <li><a href="../blog/index.html">ブログ</a></li>
             </ul>
         </nav>
+        </div>
+        
+    </header>
 
+    <main class="container">
         <section id="faq" class="tab-content active" style="margin-bottom: 60px;">
             <h2 style="text-align: center; margin: 40px 0 30px; color: var(--text-primary); font-size: 1.8rem;">FAQ｜ボクサーのためのカーニボア減量Q&A</h2>
             
