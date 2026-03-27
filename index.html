@@ -15,6 +15,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <script>
+        (function() {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                // do nothing, defaults to dark
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
 </head>
 <body>
     <header class="header">
@@ -23,23 +33,29 @@
             <a href="./index.html" class="site-logo">
                 <img src="./logo.png" alt="CarniLab" style="height: 50px; width: auto; display: block;">
             </a>
-            <nav>
+            <div class="hamburger" id="hamburger-menu">
+                <span></span><span></span><span></span>
+            </div>
+            <nav id="nav-menu">
             <ul class="global-nav" style="margin-bottom: 0;">
-                <li><a href="./index.html" class="active">Home</a></li>
+                <li><a href="./aboutus/index.html">当サイトについて</a></li>
                 <li><a href="./boxer/index.html">ボクサーとは？</a></li>
                 <li><a href="./faq/index.html">FAQ</a></li>
                 <li><a href="./tools/index.html">計算ツール</a></li>
                 <li><a href="./blog/index.html">ブログ</a></li>
-            </ul>
+            
+                <li class="theme-toggle-item">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="テーマ切り替え">
+                        <span class="icon">☀︎</span>
+                    </button>
+                </li>
+</ul>
         </nav>
         </div>
         
     </header>
 
-    <div class="container" style="text-align: center; margin: 40px auto 30px;">
-        <h1 class="site-title" style="color: var(--text-primary); font-size: 2.2rem; line-height: 1.4;">🥩 ボクサー・格闘家向け<br>カーニボア減量＆栄養計算ラボ</h1>
-        <p class="catchphrase" style="font-weight: 900; color: var(--accent-red); margin-top: 15px; font-size: 1.1rem;">肉で絞る。科学的に。</p>
-    </div>
+
 
 
     <main>
@@ -48,6 +64,13 @@
         </div>
         <section class="home-hero">
             <div class="carousel-track">
+                <div class="carousel-slide active" style="background-image: url('./hero_main.png');">
+                    <div class="carousel-overlay"></div>
+                    <div class="carousel-content">
+                        <h2>ボクサー・格闘家向け<br>カーニボア減量＆栄養計算ラボ</h2>
+                        <p>肉で絞る。科学的に。</p>
+                    </div>
+                </div>
                 <div class="carousel-slide" style="background-image: url('./hero1.png');">
                     <div class="carousel-overlay"></div>
                     <div class="carousel-content">
@@ -71,8 +94,7 @@
                         <p>メンタル、回復力、パフォーマンスの最大化について深掘り。</p>
                         <a href="./blog/index.html" class="cta-btn">ブログを読む</a>
                     </div>
-                </div>
-            </div>
+                </div></div>
             
             <button class="carousel-btn prev-btn">❮</button>
             <button class="carousel-btn next-btn">❯</button>
@@ -81,28 +103,11 @@
                 <span class="dot active" data-index="0"></span>
                 <span class="dot" data-index="1"></span>
                 <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
             </div>
         </section>
 
         <div class="container">
-            <section class="home-about" style="margin: 60px 0;">
-                <h2 class="section-title">このサイトについて</h2>
-                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px; font-weight: 700;">ボクサー・格闘家のためのカーニボア減量ラボ</p>
-                <div class="about-grid">
-                    <div class="about-item">
-                        <h3>🥊 トップレベルの疑問に答える FAQ</h3>
-                        <p>「なぜ甘いものが食べたくなるの？」「練習の強度が落ちる」といった減量時のよくある悩みを一刀両断。</p>
-                    </div>
-                    <div class="about-item">
-                        <h3>🔢 緻密に計算されたサポートツール</h3>
-                        <p>カロリー計算、タイムライン設計、計量後リカバリーまで、格闘家が必要な計算をすべて一つにまとめました。</p>
-                    </div>
-                    <div class="about-item">
-                        <h3>📝 パフォーマンス直結のブログ記事</h3>
-                        <p>最新の科学エビデンスに基づき、パンチ力やスタミナを落とさないカーニボア実践術を毎週更新中。</p>
-                    </div>
-                </div>
-            </section>
         <section class="home-news" style="margin: 60px 0;">
                 <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h2 class="section-title" style="margin: 0;">お知らせ</h2>
@@ -125,16 +130,16 @@
 
             <div class="home-cards" style="margin-top: 60px;">
                 <a href="./faq/index.html" class="home-card">
-                    <h2>FAQ</h2>
-                    <p>減量中のよくある悩みをまとめたページ</p>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px;">🥊 トップレベルの疑問に答える FAQ</h3>
+                    <p>「なぜ甘いものが食べたくなるの？」「練習の強度が落ちる」といった減量時のよくある悩みを一刀両断。</p>
                 </a>
                 <a href="./tools/index.html" class="home-card">
-                    <h2>計算ツール</h2>
-                    <p>食事計算・試合準備タイムライン・計量後リカバリーをまとめたツールページ</p>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px;">🔢 緻密に計算されたサポートツール</h3>
+                    <p>カロリー計算、タイムライン設計、計量後リカバリーまで、格闘家が必要な計算をすべて一つにまとめました。</p>
                 </a>
                 <a href="./blog/index.html" class="home-card">
-                    <h2>ブログ</h2>
-                    <p>減量ノウハウとカーニボア活用術の連載記事</p>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px;">📝 パフォーマンス直結のブログ記事</h3>
+                    <p>最新の科学エビデンスに基づき、パンチ力やスタミナを落とさないカーニボア実践術を毎週更新中。</p>
                 </a>
             </div>
         </div>
@@ -142,9 +147,20 @@
 
     <footer class="footer">
         <div class="container">
-            <p>本サイトはカーニボアダイエット推奨サイトです。医療的なアドバイスではありません。<br>試合前の急激な減量は専門家と相談してください。</p>
+            <div class="footer-nav">
+                <a href="./aboutus/index.html">当サイトについて</a>
+                <a href="./boxer/index.html">ボクサーとは？</a>
+                <a href="./faq/index.html">FAQ</a>
+                <a href="./tools/index.html">計算ツール</a>
+                <a href="./blog/index.html">ブログ</a>
+                <a href="./privacy/index.html">プライバシーポリシー</a>
+                <a href="./sitemap/index.html">サイトマップ</a>
+            </div>
+            <p class="footer-disclaimer">本サイトはカーニボアダイエット推奨サイトです。医療的なアドバイスではありません。</p>
+            <p class="footer-copyright">&copy; 2026 CarniLab</p>
         </div>
     </footer>
     <script src="script.js"></script>
+    <div id="back-to-top" title="トップへ戻る">&#8593;</div>
 </body>
 </html>

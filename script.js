@@ -1,4 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // === テーマ切り替え ===
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        const iconSpan = themeBtn.querySelector('.icon');
+        if (document.documentElement.getAttribute('data-theme') === 'light') {
+            iconSpan.textContent = '🌙';
+        }
+        
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            iconSpan.textContent = newTheme === 'light' ? '🌙' : '☀︎';
+        });
+    }
+
+    // === ハンバーガーメニュー ===
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navMenu.classList.toggle('open');
+        });
+    }
+
+    // === トップへ戻るボタン ===
+    const backToTopBtn = document.getElementById('back-to-top');
+    const footerElement = document.querySelector('.footer');
+
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+
+            if (footerElement) {
+                const footerRect = footerElement.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (footerRect.top < windowHeight) {
+                    const offset = windowHeight - footerRect.top + 20;
+                    backToTopBtn.style.bottom = offset + 'px';
+                } else {
+                    backToTopBtn.style.bottom = '40px';
+                }
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
     // === タブ切り替え機能 ===
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当サイトについて｜カーニボア減量＆栄養計算ラボ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script>
+        (function() {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                // do nothing, defaults to dark
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-bg"></div>
+        <div class="container header-top-nav" style="display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; padding-bottom: 5px;">
+            <a href="../index.html" class="site-logo">
+                <img src="../logo.png" alt="CarniLab" style="height: 50px; width: auto; display: block;">
+            </a>
+            <div class="hamburger" id="hamburger-menu">
+                <span></span><span></span><span></span>
+            </div>
+            <nav id="nav-menu">
+                <ul class="global-nav" style="margin-bottom: 0;">
+                <li><a href="index.html" class="active">当サイトについて</a></li>
+                <li><a href="../boxer/index.html">ボクサーとは？</a></li>
+                <li><a href="../faq/index.html">FAQ</a></li>
+                <li><a href="../tools/index.html">計算ツール</a></li>
+                <li><a href="../blog/index.html">ブログ</a></li>
+            
+                <li class="theme-toggle-item">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="テーマ切り替え">
+                        <span class="icon">☀︎</span>
+                    </button>
+                </li>
+</ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="glass-panel" style="margin: 40px 0 60px; padding: 40px 30px;">
+            <h2 style="text-align: center; color: var(--accent-red); margin-bottom: 40px; font-size: 2rem;">当サイトについて</h2>
+            
+            <section style="margin-bottom: 40px;">
+                <h3 style="border-bottom: 2px solid var(--accent-red); padding-bottom: 10px; margin-bottom: 20px;">CarniLab（カーニボアラボ）の目的</h3>
+                <p style="line-height: 1.8; color: var(--text-secondary);">
+                    本サイトは、ボクサーや格闘家のための「科学的かつ強力な減量手法」として、カーニボアダイエットを活用した栄養管理や実践知見を共有するプラットフォームです。過酷な体重管理による筋力低下やスタミナ不足、メンタル悪化といった課題を解決し、試合当日に100%のパフォーマンスを発揮できる状態を作り出すことを目指しています。
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-nav">
+                <a href="index.html">当サイトについて</a>
+                <a href="../boxer/index.html">ボクサーとは？</a>
+                <a href="../faq/index.html">FAQ</a>
+                <a href="../tools/index.html">計算ツール</a>
+                <a href="../blog/index.html">ブログ</a>
+                <a href="../privacy/index.html">プライバシーポリシー</a>
+                <a href="../sitemap/index.html">サイトマップ</a>
+            </div>
+            <p class="footer-disclaimer">本サイトはカーニボアダイエット推奨サイトです。医療的なアドバイスではありません。</p>
+            <p class="footer-copyright">&copy; 2026 CarniLab</p>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+    <div id="back-to-top" title="トップへ戻る">&#8593;</div>
+</body>
+</html>

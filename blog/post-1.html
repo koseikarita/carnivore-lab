@@ -22,6 +22,16 @@
         .back-link { display: inline-block; margin-top: 40px; color: var(--text-secondary); text-decoration: none; font-weight: 700; }
         .back-link:hover { color: var(--text-primary); }
     </style>
+    <script>
+        (function() {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                // do nothing, defaults to dark
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
 </head>
 <body>
     <header class="header">
@@ -30,14 +40,23 @@
             <a href="../index.html" class="site-logo">
                 <img src="../logo.png" alt="CarniLab" style="height: 50px; width: auto; display: block;">
             </a>
-            <nav>
+            <div class="hamburger" id="hamburger-menu">
+                <span></span><span></span><span></span>
+            </div>
+            <nav id="nav-menu">
             <ul class="global-nav" style="margin-bottom: 0;">
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="../aboutus/index.html">当サイトについて</a></li>
                 <li><a href="../boxer/index.html">ボクサーとは？</a></li>
                 <li><a href="../faq/index.html">FAQ</a></li>
                 <li><a href="../tools/index.html">計算ツール</a></li>
                 <li><a href="index.html" class="active">ブログ</a></li>
-            </ul>
+            
+                <li class="theme-toggle-item">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="テーマ切り替え">
+                        <span class="icon">☀︎</span>
+                    </button>
+                </li>
+</ul>
         </nav>
         </div>
         
@@ -233,8 +252,20 @@
 
     <footer class="footer">
         <div class="container">
-            <p>本サイトはカーニボアダイエット推奨サイトです。医療的なアドバイスではありません。<br>試合前の急激な減量は専門家と相談してください。</p>
+            <div class="footer-nav">
+                <a href="../aboutus/index.html">当サイトについて</a>
+                <a href="../boxer/index.html">ボクサーとは？</a>
+                <a href="../faq/index.html">FAQ</a>
+                <a href="../tools/index.html">計算ツール</a>
+                <a href="index.html">ブログ</a>
+                <a href="../privacy/index.html">プライバシーポリシー</a>
+                <a href="../sitemap/index.html">サイトマップ</a>
+            </div>
+            <p class="footer-disclaimer">本サイトはカーニボアダイエット推奨サイトです。医療的なアドバイスではありません。</p>
+            <p class="footer-copyright">&copy; 2026 CarniLab</p>
         </div>
     </footer>
+    <div id="back-to-top" title="トップへ戻る">&#8593;</div>
+    <script src="../script.js"></script>
 </body>
 </html>
