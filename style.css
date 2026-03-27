@@ -358,7 +358,6 @@ body {
 .global-nav {
   display: flex;
   margin-bottom: 30px;
-  border-bottom: 1px solid var(--border-color);
   list-style: none;
   padding: 0;
 }
