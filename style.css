@@ -92,20 +92,13 @@
   border-bottom-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Theme Toggle Button */
-.theme-toggle-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-}
-.theme-toggle-btn {
+/* Nav Actions (Theme & Lang Toggle) */
+.theme-toggle-btn, .lang-toggle-btn {
   background: transparent;
   border: 1px solid var(--glass-border);
   border-radius: 50%;
   width: 36px;
   height: 36px;
-  font-size: 1.1rem;
   cursor: pointer;
   color: var(--text-primary);
   transition: all 0.3s ease;
@@ -113,27 +106,32 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  margin-left: 10px;
+  text-decoration: none;
 }
-.theme-toggle-btn:hover {
+.theme-toggle-btn {
+  font-size: 1.1rem;
+}
+.lang-toggle-btn {
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+.theme-toggle-btn:hover, .lang-toggle-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: rotate(15deg);
 }
 
-[data-theme="light"] .theme-toggle-btn:hover {
+[data-theme="light"] .theme-toggle-btn:hover,
+[data-theme="light"] .lang-toggle-btn:hover {
   background: rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 768px) {
-  .theme-toggle-btn {
-    margin: 10px auto;
-  }
-  .theme-toggle-item {
-    margin-left: 0;
+@media (max-width: 960px) {
+  .nav-actions {
+    margin: 10px auto 0;
     width: 100%;
     border-top: 1px solid var(--glass-border);
-    padding-top: 10px;
-    margin-top: 5px;
+    padding-top: 15px;
+    gap: 15px;
   }
 }
 
@@ -189,7 +187,7 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     .header-top-nav {
         justify-content: center !important;
     }
@@ -978,7 +976,7 @@ input[type="radio"] {
   opacity: 0.7;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .footer-nav {
     flex-direction: column;
     gap: 20px;
@@ -1053,7 +1051,7 @@ input[type="radio"] {
 /* Footer removed */
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .site-title { font-size: 1.8rem; }
   input[type="number"], input[type="date"], select { font-size: 16px; }
   .input-grid { grid-template-columns: 1fr; gap: 0px; }
